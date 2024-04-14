@@ -8,5 +8,5 @@
 
 ## 2、项目运行效果（GIF）
 
-![项目演示 -original-original](README.assets\项目演示 -original-original.gif)
+![项目演示 -original-original](\README.assets\项目演示 -original-original.gif)
 
