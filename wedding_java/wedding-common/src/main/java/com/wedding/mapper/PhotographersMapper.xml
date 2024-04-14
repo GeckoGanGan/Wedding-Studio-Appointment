@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wedding.mapper.PhotographersMapper">
+    <select id="getPhotographersList" parameterType="java.lang.Long" resultType="com.wedding.domain.entity.Photographers" resultMap="photographers">
+        SELECT
+            p.ID,
+            p.PHOTOGRAPHER_NAME,
+            p.STYLE,
+            p.PHOTOGRAPHER_EMAIL,
+            p.DESCRIPTION,
+            p.SEX,
+            p.AGE,
+            p.PHOTO,
+            p.STATUS,
+            s.IMAGE_URL
+        from photographers p,samples s  where p.id = s.STUDIO_ID  and s.TYPE = 1 and p.STATUS = 0;
+    </select>
+    <select id="getPhotographersByPhotographerIds" parameterType="java.lang.Long" resultType="com.wedding.domain.entity.Photographers" resultMap="photographers">
+        SELECT
+        p.ID,
+        p.PHOTOGRAPHER_NAME,
+        p.STYLE,
+        p.PHOTOGRAPHER_EMAIL,
+        p.DESCRIPTION,
+        p.SEX,
+        p.AGE,
+        p.PHOTO,
+        p.STATUS,
+        p.CREATED_TIME,
+        s.IMAGE_URL
+        from photographers p,samples s
+        where p.id = s.STUDIO_ID and s.TYPE = 1 and p.STATUS = 0
+        and p.id in
+        <foreach item="photographerId" collection="list" open="(" separator="," close=")">
+            #{photographerId}
+        </foreach>
+    </select>
+    <select id="getPhotographersById" parameterType="java.lang.Long" resultType="com.wedding.domain.entity.Photographers" resultMap="photographers">
+        select
+            p.ID,
+            p.PHOTOGRAPHER_NAME,
+            p.STYLE,
+            p.PHOTOGRAPHER_EMAIL,
+            p.DESCRIPTION,
+            p.SEX,
+            p.AGE,
+            p.PHOTO,
+            p.STATUS,
+            p.EXPERIENCE,
+            s.IMAGE_URL
+        from samples s
+            inner join photographers p on s.STUDIO_ID = p.ID where s.TYPE = 1 and p.ID = #{id}
+    </select>
+
+    <resultMap id="photographers" type="com.wedding.domain.entity.Photographers">
+        <result property="id" column="ID"></result>
+        <result property="photographerName" column="PHOTOGRAPHER_NAME"></result>
+        <result property="style" column="STYLE"></result>
+        <result property="photographerEmail" column="PHOTOGRAPHER_EMAIL"></result>
+        <result property="description" column="DESCRIPTION"></result>
+        <result property="sex" column="SEX"></result>
+        <result property="age" column="AGE"></result>
+        <result property="photo" column="PHOTO"></result>
+        <result property="status" column="STATUS"></result>
+        <result property="createdTime" column="CREATED_TIME"></result>
+        <result property="experience" column="EXPERIENCE"></result>
+        <collection property="portfolio" ofType="com.wedding.domain.entity.Samples">
+            <result property="imageUrl" column="IMAGE_URL"></result>
+        </collection>
+    </resultMap>
+</mapper>

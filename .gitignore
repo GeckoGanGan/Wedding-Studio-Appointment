@@ -1,0 +1,26 @@
+# Ignore Gradle and Maven build directories
+**/build/
+**/target/
+
+# Ignore IntelliJ IDEA files
+*.iml
+.idea/
+.idea_modules/
+
+# Ignore Node.js modules
+node_modules/
+
+# Ignore logs
+logs/
+
+# Ignore npm debugging log
+npm-debug.log*
+
+# Ignore Vue.js build output
+/dist/
+# Ignore application.yml file
+application.yml
+
+# Ignore any other specific files or directories you want to exclude
+# For example, if you have specific files like .env or .gitignore.local
+# you don't want to commit, add them here
