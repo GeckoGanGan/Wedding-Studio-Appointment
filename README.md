@@ -8,5 +8,5 @@
 
 ## 2、项目运行效果（GIF）
 
-![项目演示 -original-original](E:\新电脑数据备份\zhudake\Java学习\ReadeMe\README.assets\项目演示 -original-original.gif)
+![项目演示 -original-original](ReadeMe\README.assets\项目演示 -original-original.gif)
 
