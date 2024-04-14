@@ -8,5 +8,5 @@
 
 ## 2、项目运行效果（GIF）
 
-![项目演示 -original-original](\README.assets\项目演示 -original-original.gif)
+![项目演示 -original-original]([\README.assets\项目演示 -original-original.gif](https://github.com/GeckoGanGan/Wedding-Studio-Appointment/blob/main/README.assets/%E9%A1%B9%E7%9B%AE%E6%BC%94%E7%A4%BA%20-original-original.gif))
 
